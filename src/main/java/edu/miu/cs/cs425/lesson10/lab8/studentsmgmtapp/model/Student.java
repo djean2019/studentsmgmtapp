@@ -9,21 +9,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
 import edu.miu.cs.cs425.lesson10.lab8.studentsmgmtapp.model.Transcript;
 
-//import org.hibernate.annotations.Columns;
-
-
 @Entity
 @Table(name="students")
 public class Student {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long studentId;
 	
 	@Column(name="student_number", nullable=false)
@@ -60,25 +56,6 @@ public class Student {
 	public void setTranscript(Transcript transcript) {
 		this.transcript = transcript;
 	}
-
-//	public Classroom getClassroom() {
-//		return classroom;
-//	}
-//
-//	public void setClassroom(Classroom classroom) {
-//		this.classroom = classroom;
-//	}
-//
-//	public Student(String studentNumber, String firstName, String middleName, String lastName, double cgpa,
-//			LocalDate dateOfEnrollment, Classroom classroom) {
-//		this.studentNumber = studentNumber;
-//		this.firstName = firstName;
-//		this.middleName = middleName;
-//		this.lastName = lastName;
-//		this.cgpa = cgpa;
-//		this.dateOfEnrollment = dateOfEnrollment;
-//		this.classroom=classroom;
-//	}
 
 	public Student(String studentNumber, String firstName, String middleName, String lastName, double cgpa,
 			LocalDate dateOfEnrollment, Transcript transcript) {
